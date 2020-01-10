@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1px">
+    <tr>
+        <th>序号</th>
+        <th>路径</th>
+        <th>名称</th>
+        <th>长传时间</th>
+        <th>上传者</th>
+    </tr>
+    {% for file in files %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ file.file }}</td>
+        <td><img src="/media/{{ file.file }}" width="100px"></td>
+        <td>{{ file.upload_time }}</td>
+        <td>{{ file.user.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p><button onclick="do_query()">查询</button></p>
+
+<div id='show'>
+
+</div>
+
+<script>
+    function do_query() {
+        $.get('/test/query_file/',function (resp) {
+            $('#show').append(resp)
+        },'html')
+    }
+</script>
+
+</body>
+</html>

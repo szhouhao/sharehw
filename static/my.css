@@ -1,0 +1,22 @@
+*{              /*取消默认样式，设置内边距外边距都是0，*代表所有标签*/
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    background: #3a3a3a;
+    height: 65px;
+    overflow: hidden;
+}
+.nav li{
+    float: left;
+    list-style: none;   /*取消前面的小圆点*/
+    margin: 0 20px;     /*设置外边距，上下、左右*/
+    line-height: 65px;  /*通过设置行高来居中（行高等于外框）*/
+}
+.nav li a{
+    color: white;
+    text-decoration: none;  /*取消下划线*/
+}
+.nav li a:hover{
+    color:orangered;
+}
