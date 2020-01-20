@@ -6,8 +6,9 @@ import uuid
 
 def index(request):
     print('hello')
-    return render(request, 'list.html')
+    return render(request, 'index.html')
 
 
 class DocView(APIView):
     pass
+

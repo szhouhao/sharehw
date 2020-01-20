@@ -23,5 +23,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', views.index,name='index'),
     re_path('^doc/(\w+)$', views_admin.DocManage.as_view()),
+    re_path('^calpractice/(\w+)$', views_generics.CalManage.as_view()),
 ]
 urlpatterns += staticfiles_urlpatterns()
