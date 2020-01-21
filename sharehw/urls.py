@@ -22,6 +22,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', views.index,name='index'),
+    path('matain', views.matain),
     re_path('^doc/(\w+)$', views_admin.DocManage.as_view()),
     re_path('^calpractice/(\w+)$', views_generics.CalManage.as_view()),
 ]

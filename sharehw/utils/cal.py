@@ -12,6 +12,7 @@ class CalAPI(object):
         num = int(self.request.GET.get('num'))
         count = int(self.request.GET.get('count'))
         rg = int(self.request.GET.get('rg'))
+
         res = self.cal_object(num, count, rg).get_questions()
         return res
 
@@ -20,7 +21,6 @@ class CalAPI(object):
         count = int(self.request.GET.get('count'))
         rg = int(self.request.GET.get('rg'))
         res = self.cal_object(num, count, rg).get_excel_cal()
-        # return redirect('http://192.168.4.81:5000/static/%s'%res)
         return res
 
     def doc_upload(self):

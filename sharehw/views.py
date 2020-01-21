@@ -7,7 +7,8 @@ import uuid
 def index(request):
     print('hello')
     return render(request, 'index.html')
-
+def matain(request):
+    return render(request, 'matain.html')
 
 class DocView(APIView):
     pass
