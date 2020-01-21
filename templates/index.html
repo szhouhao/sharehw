@@ -31,8 +31,8 @@
                 <li><a href="#bbs">课程分类</a></li>
                 <li><a href="#html5">天天小助手</a></li>
                 <li><a href="#course">最新习题</a></li>
-                <li><a href="#app">文档下载</a></li>
-                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#app">文档分享</a></li>
+                <li><a href="#app">联系我们</a></li>
             </ul>
         </div>
         <!--导航-->
@@ -100,14 +100,12 @@
             <p>天天平台倾情打造，自动生成加减法口算题</p>
             <p><span class="glyphicon glyphicon-grain mai-icon"></span>自主定制(计算范围，数字个数，答案位置),根据不同层次个性化生成计算题</p>
             <p><span class="glyphicon glyphicon-grain mai-icon"></span>支持Excel、txt文档导出，附带答案</p>
-            <form action="http://192.168.4.81:5000/calpractice/getcal">
-{#                <p><label>题目数量</label>#}
-{#                <label>题目数量</label>#}
-{#                <label>题目数量</label></p>#}
-                <input type="text" name="num"/>
-                <input type="text" name="count" />
-                <input type="text" name="rg" />
-                <p><input type="submit" value="生成计算题"/></p>
+            <form action="http://192.168.4.81:5000/calpractice/getexcelcal">
+                <input type="text" name="num" maxlength="3" οnkeyup="value=value.replace(/[^\d]/g,'')"  placeholder="题目数量" />
+                <input type="text" name="count" maxlength="1" οnkeyup="value=value.replace(/[^\d]/g,'')" placeholder="数字个数" />
+                <input type="text" name="rg" maxlength="3" οnkeyup="value=value.replace(/[^\d]/g,'')" placeholder="计算范围" />
+{#                <p><input type="submit" value="生成计算题"/></p>#}
+                <button  id="submitbut" style="display: block;">生成计算题</button>
             </form>
         </div>
         <div class="col-md-6 wow fadeInRight">
@@ -118,19 +116,19 @@
 <!--html5-->
 
 <!--bootstrap-->
-<section id="bootstrap">
-    <div class="container wow fadeInUp">
-        <div class="col-md-6">
-            <img src="/static/images/Bootstrap.jpg" class="img-responsive" alt=""/>
-        </div>
-        <div class="col-md-6">
-            <h2>bootstrap实战视频教程</h2>
-            <p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>
-            <p><span class="glyphicon glyphicon-grain mai-icon"></span>你的网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备。</p>
-            <p><span class="glyphicon glyphicon-grain mai-icon"></span>Bootstrap 提供了全面、美观的文档。你能在这里找到关于 HTML 元素、HTML 和 CSS 组件、jQuery 插件方面的所有详细文档。</p>
-        </div>
-    </div>
-</section>
+{#<section id="bootstrap">#}
+{#    <div class="container wow fadeInUp">#}
+{#        <div class="col-md-6">#}
+{#            <img src="/static/images/Bootstrap.jpg" class="img-responsive" alt=""/>#}
+{#        </div>#}
+{#        <div class="col-md-6">#}
+{#            <h2>bootstrap实战视频教程</h2>#}
+{#            <p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>#}
+{#            <p><span class="glyphicon glyphicon-grain mai-icon"></span>你的网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备。</p>#}
+{#            <p><span class="glyphicon glyphicon-grain mai-icon"></span>Bootstrap 提供了全面、美观的文档。你能在这里找到关于 HTML 元素、HTML 和 CSS 组件、jQuery 插件方面的所有详细文档。</p>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
 <!--bootstrap-->
 
 <!--course-->
@@ -192,7 +190,7 @@
                 <div class="course">
                     <img src="/static/images/swift.jpg" class="img-responsive" alt=""/>
                     <a href="http://www.baidu.com" class="btn btn-primary" target="_blank" role="button">
-                        加入学习
+                        立即下载
                     </a>
                 </div>
             </div>
@@ -214,18 +212,18 @@
     <div class="container">
         <div class="row  wow fadeInUp">
             <div class="col-md-6">
-                <h2>麦子学院移动APP下载</h2>
+                <h3>文档分享</h3>
                 <p>
-                    全新UI交互，与新网站数据同步，更加丰富的课程，开启精彩无限，语音搜索课程，喊出你想要的课程，一件收藏，方便自己重复学习，离线下载课程，在哪儿都能开！
+                    聚沙成塔，滴水成海，有你的一点点才会有我们的大世界。
                 </p>
-                <button class="btn btn-primary">
-                    <span class="glyphicon glyphicon-download-alt"></span>
-                    iPhone版
+                &nbsp;
+                <form action="http://192.168.4.81:5000/calpractice/docupload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="docname">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-upload"></span>
+                    文件上传
                 </button>
-                <button class="btn btn-primary">
-                    <span class="glyphicon glyphicon-download-alt"></span>
-                    Android版
-                </button>
+                </form>
             </div>
             <div class="col-md-6">
                 <img src="/static/images/app-banner.jpg" class="img-responsive" alt=""/>
@@ -236,60 +234,60 @@
 <!--app-->
 
 <!--contact-->
-<section id="contact">
-    <div class="lvjing">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6  wow fadeInLeft">
-                    <h2>
-                        <span class="glyphicon glyphicon-send"></span>
-                        &nbsp;
-                        联系天天练
-                    </h2>
-                    <p>
-                        天天练是一个在线教育资源分享平台，脱离传统教材的束缚，让你走哪学哪，想学就学，有效提高学习成绩！
-                    </p>
-                    <address>
-                        <p>
-                            <span class="glyphicon glyphicon-home"></span>
-                            &nbsp;
-                            地址:XXXX
-                        </p>
-                        <p>
-                            <span class="glyphicon glyphicon-phone-alt"></span>
-                            &nbsp;
-                            联系电话：XXXX
-                        </p>
-                        <p>
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            &nbsp;
-                            邮箱:XXXX
-                        </p>
-                    </address>
-                </div>
-                <div class="col-md-6  wow fadeInRight">
-                    <form action="#" method="post">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="您的姓名"/>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="您的邮箱"/>
-                        </div>
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="标题"/>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea class="form-control" placeholder="留言内容" rows="4"></textarea>
-                        </div>
-                        <div class="col-md-8">
-                            <input type="submit" class="form-control" value="提交"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{#<section id="contact">#}
+{#    <div class="lvjing">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-md-6  wow fadeInLeft">#}
+{#                    <h2>#}
+{#                        <span class="glyphicon glyphicon-send"></span>#}
+{#                        &nbsp;#}
+{#                        联系天天练#}
+{#                    </h2>#}
+{#                    <p>#}
+{#                        天天练是一个在线教育资源分享平台，脱离传统教材的束缚，让你走哪学哪，想学就学，有效提高学习成绩！#}
+{#                    </p>#}
+{#                    <address>#}
+{#                        <p>#}
+{#                            <span class="glyphicon glyphicon-home"></span>#}
+{#                            &nbsp;#}
+{#                            地址:XXXX#}
+{#                        </p>#}
+{#                        <p>#}
+{#                            <span class="glyphicon glyphicon-phone-alt"></span>#}
+{#                            &nbsp;#}
+{#                            联系电话：XXXX#}
+{#                        </p>#}
+{#                        <p>#}
+{#                            <span class="glyphicon glyphicon-envelope"></span>#}
+{#                            &nbsp;#}
+{#                            邮箱:XXXX#}
+{#                        </p>#}
+{#                    </address>#}
+{#                </div>#}
+{#                <div class="col-md-6  wow fadeInRight">#}
+{#                    <form action="#" method="post">#}
+{#                        <div class="col-md-6">#}
+{#                            <input type="text" class="form-control" placeholder="您的姓名"/>#}
+{#                        </div>#}
+{#                        <div class="col-md-6">#}
+{#                            <input type="email" class="form-control" placeholder="您的邮箱"/>#}
+{#                        </div>#}
+{#                        <div class="col-md-12">#}
+{#                            <input type="text" class="form-control" placeholder="标题"/>#}
+{#                        </div>#}
+{#                        <div class="col-md-12">#}
+{#                            <textarea class="form-control" placeholder="留言内容" rows="4"></textarea>#}
+{#                        </div>#}
+{#                        <div class="col-md-8">#}
+{#                            <input type="submit" class="form-control" value="提交"/>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
 <!--contact-->
 
 <!--footer-->
